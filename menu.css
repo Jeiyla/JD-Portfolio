@@ -1,0 +1,280 @@
+.menu-wrap {
+    position: fixed;
+    top: 1em;
+    left: 80%;
+}
+
+.menu-wrap .toggler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+}
+
+.menu-wrap .hamburger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*hamburger lines***********************************************/
+.menu-wrap .hamburger > div {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: #ad3535;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    transition: all 0.4s;
+}
+/*top style top & bottom lines*************************************/
+.menu-wrap .hamburger > div:before,
+.menu-wrap .hamburger > div:after {
+    content: "";
+    position: absolute;
+    z-index: 5;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background-color: inherit;
+}
+/*moves line down**********************************************************/
+.menu-wrap .hamburger > div:after {
+    top: 10px;
+}
+/*toggler animation***********************************************/
+.menu-wrap .toggler:checked + .hamburger > div {
+    transform: rotate(135deg);
+}
+/*turn lines into X*********************************************/
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
+    top: 0;
+    transform: rotate(90deg);
+    background-color: inherit;
+}
+/*rotate on hover when checked**************************************/
+.menu-wrap .toggler:checked:hover +.hamburger > div {
+    transform: rotate(225deg);
+}
+/*show menu*******************************************************************/
+.menu-wrap .toggler:checked ~ .menu {
+    visibility: visible;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div {
+    transform: scale(1) ;
+    transition-duration: 0.5s;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div > div {
+    opacity: 1;
+    transition: opacity 0.4s ease ;
+}
+
+.menu-wrap .menu {
+    z-index: 4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-wrap .menu > div {
+    background: rgba(173, 53, 53, 0.98);
+    border-radius: 50%;
+    width: 150vw;
+    height: 150vw;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: all 0.4s ease-in-out;
+}
+
+.menu-wrap .menu > div > div {
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li {
+    color: white;
+    font-size: 1.8em;
+    padding: 1em;
+}
+
+.menu-wrap .menu > div > div > ul > li > a {
+    color: inherit;
+    transition: color 0.4s ease;
+}
+
+#jd-navlogo:hover {
+    opacity: 0.5;
+}
+
+.menu-wrap .menu > div > div > ul > li > a:hover {
+    position: relative;
+    color: #fff6f6;
+}
+
+
+@media all and (min-width: 576px) {
+
+    .menu-wrap {
+        left: 90%;
+    }
+}
+
+@media all and (min-width: 840px) {
+    nav {
+        filter: drop-shadow(5px 5px 5px #e7e7e7);
+    }
+
+    .menu-wrap {
+        position: unset;
+    }
+
+    .menu-wrap .menu {
+        height: unset;
+        width: unset;
+    }
+
+    .menu-wrap .menu > div {
+        transition: unset;
+        display: inline;
+        height: unset;
+        transform: scale(1);
+        background: none;
+    }
+
+    .menu-wrap .menu > div > div {
+        max-width: 65%;
+        opacity: 1;
+    }
+
+    .menu-wrap .menu > div > div > ul {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 18px;
+    }
+
+    .menu-wrap .menu > div > div > ul > li  {
+        font-weight: 300;
+        color: #474747;
+        align-items: center;
+        padding: 5px 20px;
+    }
+
+    .menu-wrap .menu > div > div > ul #contact {
+        background: #ad3535;
+        border-radius: 5px;
+        font-weight: 400;
+        color: white;
+    }
+
+    .menu-wrap .menu > div > div > ul > li > a:hover {
+        color: #ad3535;
+        top: 10px;
+    }
+
+    .menu-wrap .menu > div > div > ul #contact:hover {
+        background-color: #F8F8F8FF;
+        border: none;
+        top: 10px;
+    }
+
+    .menu-wrap .toggler {
+        display: none;
+    }
+
+    .menu-wrap .toggler:not(:checked) ~ .menu {
+        visibility: visible;
+        overflow: visible;
+    }
+
+    .menu-wrap .hamburger {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/*OLD-burger-animation*********************************************************/
+/*.menu-btn {*/
+/*    position: relative;*/
+/*    right: 5%;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    width: 80px;*/
+/*    height: 100px;*/
+/*    cursor: pointer;*/
+/*    transition: all .5s ease-in-out;*/
+/*}*/
+
+/*.menu-btn_burger {*/
+/*    width: 50px;*/
+/*    height: 6px;*/
+/*    background: #000;*/
+/*    border-radius: 5px;*/
+/*    transition: all .5s ease-in-out;*/
+/*}*/
+
+/*.menu-btn_burger::before, .menu-btn_burger::after {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    width: 50px;*/
+/*    height: 6px;*/
+/*    background: #000;*/
+/*    border-radius: 5px;*/
+/*    transition: all .5s ease-in-out;*/
+/*}*/
+
+/*.menu-btn_burger::before {*/
+/*    transform: translateY(-16px);*/
+/*}*/
+
+/*.menu-btn_burger::after {*/
+/*    transform: translateY(16px);*/
+/*}*/
+
+/*burger-animation*********************************************************/
+
+/*.menu-btn.open .menu-btn_burger {*/
+/*    transform: translateX(-50px);*/
+/*    background: transparent;*/
+/*}*/
+
+/*.menu-btn.open .menu-btn_burger::before {*/
+/*    transform: rotate(45deg) translate(35px, -35px);*/
+/*}*/
+
+/*.menu-btn.open .menu-btn_burger::after {*/
+/*    transform: rotate(-45deg) translate(35px, 35px);*/
+/*}*/
